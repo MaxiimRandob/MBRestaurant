@@ -6,12 +6,12 @@
 	<display-name>MBRestaurant</display-name>
 
 	<servlet>
-		<servlet-name>MenuServlet</servlet-name>
-		<servlet-class>com.mbrestaurant.servlet.MenuServlet</servlet-class>
+		<servlet-name>DispatcherServlet</servlet-name>
+		<servlet-class>com.mbrestaurant.web.DispatcherServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>MenuServlet</servlet-name>
+		<servlet-name>DispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 </web-app>

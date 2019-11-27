@@ -8,4 +8,6 @@ import java.util.List;
 public interface MenuService
 {
 	List<MenuItem> getMenuItems();
+
+	boolean addMenuItem(MenuItem item);
 }

@@ -20,4 +20,11 @@ public class MenuServiceImpl implements MenuService
 		menuItems = menuItemDao.getAll();
 		return menuItems;
 	}
+
+	@Override
+	public boolean addMenuItem(final MenuItem item)
+	{
+		MenuItemDao menuItemDao = new MenuItemDao();
+		return menuItemDao.create(item);
+	}
 }

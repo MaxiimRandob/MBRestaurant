@@ -1,8 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 <head>
-	<title>List Targets</title>
-
-	<link type="text/css" rel="stylesheet" href="web/resources/css/style.css">
+	<title>Menu</title>
+	<style>
+		<%@include file='resources/css/menu-style.css' %>
+	</style>
 </head>
 
 <body>
@@ -20,7 +23,6 @@
 			   onclick="window.location.href=''; return false;"
 			   class="add-button"
 		/>
-
 		<table>
 			<tr>
 				<th>Name</th>
@@ -39,6 +41,7 @@
 				<tr>
 					<td> ${MenuItem.name} </td>
 					<td> ${MenuItem.price} </td>
+					<td>
 						<a href="${updateLink}">Update</a>
 						<a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this one?'))) return false">Delete</a>
 					</td>

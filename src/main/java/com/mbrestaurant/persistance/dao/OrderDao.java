@@ -14,22 +14,22 @@ public class OrderDao implements EntityDao<Order>
 {
 	private static final String COLUMN_ORDER_ID = "id";
 	private static final String COLUMN_TOTAL = "total";
-	private static final String COLUMN_DATE = "name";
+	private static final String COLUMN_DATE = "date";
 
-	private static final String SELECT_FROM_ORDER = "SELECT * FROM `ordertab`";
-	private static final String SELECT_FROM_ORDER_BY_ID = "SELECT * FROM `ordertab` WHERE " + COLUMN_ORDER_ID + " = ?";
-	private static final String INSERT_INTO_ORDER = "INSERT INTO ordertab ("
+	private static final String SELECT_FROM_ORDER = "SELECT * FROM `order_tab`";
+	private static final String SELECT_FROM_ORDER_BY_ID = "SELECT * FROM `order_tab` WHERE " + COLUMN_ORDER_ID + " = ?";
+	private static final String INSERT_INTO_ORDER = "INSERT INTO order_tab ("
 		+ COLUMN_ORDER_ID + ", "
 		+ COLUMN_DATE + ", "
 		+ COLUMN_TOTAL + ") VALUE ( ?, ?, ?)";
 
-	private static final String UPDATE_ORDER = "UPDATE ordertab "
+	private static final String UPDATE_ORDER = "UPDATE order_tab "
 		+ COLUMN_ORDER_ID + "= ?, "
 		+ COLUMN_DATE + "= ?, "
 		+ COLUMN_TOTAL + "= ? " + "= ? WHERE "
 		+ COLUMN_ORDER_ID + " = ?";
 
-	private static final String DELETE_ORDER = "DELETE FROM ordertab "
+	private static final String DELETE_ORDER = "DELETE FROM order_tab "
 		+ "WHERE " + COLUMN_ORDER_ID + " = ?";
 
 
@@ -46,7 +46,7 @@ public class OrderDao implements EntityDao<Order>
 			{
 				item.setId(resultSet.getInt("id"));
 				item.setDate(resultSet.getDate("date"));
-				item.setTotal(resultSet.getInt("total_price"));
+				item.setTotal(resultSet.getInt("total"));
 			}
 		}
 		catch (SQLException e)
@@ -69,7 +69,7 @@ public class OrderDao implements EntityDao<Order>
 				Order item = new Order();
 				item.setId(resultSet.getInt("id"));
 				item.setDate(resultSet.getDate("date"));
-				item.setTotal(resultSet.getInt("total_price"));
+				item.setTotal(resultSet.getInt("total"));
 				itemList.add(item);
 			}
 		}

@@ -16,20 +16,19 @@ public class MenuItemDao implements EntityDao<MenuItem>
 	private static final String COLUMN_PRICE = "price";
 	private static final String COLUMN_NAME = "name";
 
-	private static final String SELECT_FROM_MENUITEM = "SELECT * FROM `menuitem`";
-	private static final String SELECT_FROM_MENUITEM_BY_ID = "SELECT * FROM `menuitem` WHERE " + COLUMN_MENUITEM_ID + " = ?";
-	private static final String INSERT_INTO_MENUITEM = "INSERT INTO menuitem ("
-		+ COLUMN_MENUITEM_ID + ", "
+	private static final String SELECT_FROM_MENUITEM = "SELECT * FROM `menu_item`";
+	private static final String SELECT_FROM_MENUITEM_BY_ID = "SELECT * FROM `menu_item` WHERE " + COLUMN_MENUITEM_ID + " = ?";
+	private static final String INSERT_INTO_MENUITEM = "INSERT INTO menu_item ("
 		+ COLUMN_PRICE + ", "
-		+ COLUMN_NAME + ") VALUE ( ?, ?, ?)";
+		+ COLUMN_NAME + ") VALUE (?, ?)";
 
-	private static final String UPDATE_MENUITEM = "UPDATE menuitem "
+	private static final String UPDATE_MENUITEM = "UPDATE menu_item "
 		+ COLUMN_MENUITEM_ID + "= ?, "
 		+ COLUMN_PRICE + "= ?, "
 		+ COLUMN_NAME + "= ? " + "= ? WHERE "
 		+ COLUMN_MENUITEM_ID + " = ?";
 
-	private static final String DELETE_MENUITEM = "DELETE FROM menuitem "
+	private static final String DELETE_MENUITEM = "DELETE FROM menu_item "
 		+ "WHERE " + COLUMN_MENUITEM_ID + " = ?";
 
 	@Override
@@ -83,7 +82,20 @@ public class MenuItemDao implements EntityDao<MenuItem>
 	@Override
 	public boolean create(final MenuItem entity)
 	{
-		return false;
+		boolean success = false;
+		try(Connection connection = ConnectionFactory.getConnection())
+		{
+			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO_MENUITEM);
+			preparedStatement.setInt(1, entity.getPrice());
+			preparedStatement.setString(2, entity.getName());
+			int result = preparedStatement.executeUpdate();
+			success = result != 0;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return success;
 	}
 
 	@Override

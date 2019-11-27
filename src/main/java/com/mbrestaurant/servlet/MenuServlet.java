@@ -28,4 +28,15 @@ public class MenuServlet
 		RequestDispatcher view = req.getRequestDispatcher("result.jsp");
 		view.forward(req, resp);
 	}
+
+	@Override
+	protected void doPost(
+		final HttpServletRequest req,
+		final HttpServletResponse resp)
+		throws
+		ServletException,
+		IOException
+	{
+		super.doPost(req, resp);
+	}
 }
