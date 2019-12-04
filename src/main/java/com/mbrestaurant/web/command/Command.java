@@ -7,5 +7,5 @@ import javax.servlet.http.HttpServletRequest;
 
 public interface Command
 {
-	Page perform(HttpServletRequest request);
+	public Page perform(HttpServletRequest request);
 }

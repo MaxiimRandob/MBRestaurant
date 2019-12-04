@@ -9,16 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 
 import static com.mbrestaurant.constants.PageUrlConstants.ORDERS_PAGE;
 
-public class OrderListCommandGet implements Command
+public class OrderListCommandGet
+	implements Command
 {
 
+	private OrderService orderService;
 
-	private OrderServiceImpl orderService = new OrderServiceImpl();
+	public OrderListCommandGet()
+	{
+		this.orderService = new OrderServiceImpl();
+	}
 
 	@Override
-	public Page perform(final HttpServletRequest request)
+	public Page perform(HttpServletRequest request)
 	{
 		request.setAttribute("orders", orderService.getOrders());
-		return new Page(ORDERS_PAGE, true);
+		return new Page(ORDERS_PAGE);
 	}
 }
