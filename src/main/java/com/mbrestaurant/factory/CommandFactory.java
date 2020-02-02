@@ -1,8 +1,10 @@
 package com.mbrestaurant.factory;
 
 import com.mbrestaurant.web.command.Command;
+import com.mbrestaurant.web.command.HomeCommand;
+import com.mbrestaurant.web.command.menu.*;
 import com.mbrestaurant.web.command.NotFoundCommand;
-import com.mbrestaurant.web.command.manager.OrderListCommandGet;
+import com.mbrestaurant.web.command.order.OrderListCommandGet;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +16,19 @@ public class CommandFactory
 	private static Command defaultCommand = new NotFoundCommand();
 
 	static {
-		getCommandMap.put("/", new OrderListCommandGet());
+
+		//--------- GET commands ----------//
+		getCommandMap.put("/update-menu-item", new MenuCommandUpdate());
+		getCommandMap.put("/add-menu-item", new ShowMenuItemAddForm());
+		getCommandMap.put("/orders", new OrderListCommandGet());
+		getCommandMap.put("/menu", new MenuCommandGet());
+		getCommandMap.put("/delete-menu-item", new MenuCommandDelete());
+		getCommandMap.put("/", new HomeCommand());
+
+
+		//--------- POST commands ----------//
+		postCommandMap.put("/add-menu-item", new MenuItemCommandPost());
+		postCommandMap.put("/update-menu-item", new MenuCommandUpdate());
 	}
 
 	private CommandFactory() {

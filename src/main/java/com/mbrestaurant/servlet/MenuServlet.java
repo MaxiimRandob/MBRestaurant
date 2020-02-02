@@ -25,7 +25,7 @@ public class MenuServlet
 
 		MenuService menuService = new MenuServiceImpl();
 		req.setAttribute("menuItems", menuService.getMenuItems());
-		RequestDispatcher view = req.getRequestDispatcher("result.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("menu.jsp");
 		view.forward(req, resp);
 	}
 

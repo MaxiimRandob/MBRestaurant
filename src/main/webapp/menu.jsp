@@ -20,7 +20,7 @@
 
 	<div id=content">
 		<input type="button" value="Add MenuItem"
-			   onclick="window.location.href=''; return false;"
+			   onclick="window.location.href='<c:url value="/add-menu-item" />'; return false;"
 			   class="add-button"
 		/>
 		<table>
@@ -28,14 +28,14 @@
 				<th>Name</th>
 				<th>Price</th>
 			</tr>
-			<c:forEach var="MenuItem" items="${menuItems}">
+			<c:forEach var="MenuItem" items="${menu}">
 
-				<c:url var="updateLink" value="">
-					<c:param name="MenuItemId" value="${MenuItem.id}"/>
+				<c:url var="updateLink" value="/update-menu-item">
+					<c:param name="id" value="${MenuItem.id}"/>
 				</c:url>
 
-				<c:url var="deleteLink" value=" ">
-					<c:param name="MenuItemId" value="${MenuItem.id}"/>
+				<c:url var="deleteLink" value="/delete-menu-item">
+					<c:param name="id" value="${MenuItem.id}"/>
 				</c:url>
 
 				<tr>

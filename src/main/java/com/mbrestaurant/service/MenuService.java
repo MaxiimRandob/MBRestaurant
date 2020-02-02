@@ -5,9 +5,15 @@ import com.mbrestaurant.persistance.model.MenuItem;
 import java.awt.*;
 import java.util.List;
 
-public interface MenuService
-{
-	List<MenuItem> getMenuItems();
+public interface MenuService {
+    MenuItem getById(int id);
 
-	boolean addMenuItem(MenuItem item);
+    List<MenuItem> getMenuItems();
+
+    boolean addMenuItem(MenuItem item);
+
+    boolean updateMenuItem(MenuItem item);
+
+    boolean deleteMenuItem(int id);
+
 }

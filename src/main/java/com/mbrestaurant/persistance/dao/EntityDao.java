@@ -12,5 +12,5 @@ public interface EntityDao<T> {
 
 	boolean update(T entity);
 
-	boolean remove(T entity);
+	boolean remove(int id);
 }

@@ -1,6 +1,7 @@
 package com.mbrestaurant.persistance.connection;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
+import org.apache.log4j.Logger;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.util.Properties;
 
 public class ConnectionFactory
 {
-	//private static final Logger LOG = Logger.getLogger(ConnectionFactory.class);
+	private static final Logger LOG = Logger.getLogger(ConnectionFactory.class);
 
 	private static final ConnectionFactory INSTANCE = new ConnectionFactory();
 
@@ -33,11 +34,11 @@ public class ConnectionFactory
 			mysqlDataSource.setPassword(properties.getProperty("DB_PASSWORD"));
 
 			dataSource = mysqlDataSource;
-			//LOG.info("Database created: " + dataSource);
+			LOG.info("Database created: " + dataSource);
 		}
 		catch (IOException e)
 		{
-			//LOG.error("Error while creating connection");
+			LOG.error("Error while creating connection");
 		}
 	}
 
@@ -51,7 +52,7 @@ public class ConnectionFactory
 		}
 		catch (SQLException e)
 		{
-			//LOG.error("Error while connection creation", e);
+			LOG.error("Error while connection creation", e);
 		}
 		return connection;
 	}

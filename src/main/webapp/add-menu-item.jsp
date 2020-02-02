@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <!DOCTYPE html>
@@ -25,43 +26,22 @@
 
 <div id="container">
 
-	<h3>Save Target</h3>
+	<h3>Add item to menu</h3>
 
-	<form action="saveTarget" modelAttribute="target" method="POST">
+	<form name="addMenuItemForm" action="${pageContext.request.contextPath}/add-menu-item" method="POST">
 
 
 		<table>
 			<tbody>
 			<tr>
-				<td><label>Task name:</label></td>
-				<td><input type="text" name="firstName" class="form-Control" value=/></td>
+				<td><label>Dish name:</label></td>
+				<td><input type="text" name="name" class="form-Control" value="${name}"></td>
 			</tr>
 
 			<tr>
-				<td><label>Progress:</label></td>
-				<td></td>
+				<td><label>Cost:</label></td>
+				<td><input type="text" name="price" class="form-Control" value="${price}"></td>
 			</tr>
-
-			<tr>
-				<td><label>Date of creation:</label></td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td><label>Oriented finish date:</label></td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td><label>In progress:</label></td>
-				<td></td>
-			</tr>
-
-			<tr>
-				<td><label>Description:</label></td>
-				<td></td>
-			</tr>
-
 
 			<tr>
 				<td><label></label></td>
@@ -73,7 +53,7 @@
 
 	<div style="clear: both;"></div>
 	<p>
-		<a href="/">Back to menu</a>
+		<a href='<c:url value="/menu" />'>Back to menu</a>
 	</p>
 
 </div>

@@ -15,12 +15,14 @@ public class OrderItemDao implements EntityDao<OrderItem>
 	@Override
 	public List<OrderItem> getAll()
 	{
+		//Получение всех елементов ордера по айди ордера
 		return null;
 	}
 
 	@Override
 	public boolean create(final OrderItem entity)
 	{
+		// добавление елемента ордера в базу
 		return false;
 	}
 
@@ -31,7 +33,7 @@ public class OrderItemDao implements EntityDao<OrderItem>
 	}
 
 	@Override
-	public boolean remove(final OrderItem entity)
+	public boolean remove(final int id)
 	{
 		return false;
 	}

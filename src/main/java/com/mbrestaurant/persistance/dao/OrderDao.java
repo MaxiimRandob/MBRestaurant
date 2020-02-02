@@ -83,7 +83,20 @@ public class OrderDao implements EntityDao<Order>
 	@Override
 	public boolean create(final Order entity)
 	{
-		return false;
+		boolean success = false;
+		try(Connection connection = ConnectionFactory.getConnection())
+		{
+			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO_ORDER);
+			preparedStatement.setInt(1, entity.getTotal());
+			preparedStatement.setDate(2, entity.getDate());
+			int result = preparedStatement.executeUpdate();
+			success = result != 0;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return success;
 	}
 
 	@Override
@@ -93,7 +106,7 @@ public class OrderDao implements EntityDao<Order>
 	}
 
 	@Override
-	public boolean remove(final Order entity)
+	public boolean remove(final int id)
 	{
 		return false;
 	}

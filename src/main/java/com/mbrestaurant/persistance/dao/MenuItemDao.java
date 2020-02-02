@@ -22,10 +22,10 @@ public class MenuItemDao implements EntityDao<MenuItem>
 		+ COLUMN_PRICE + ", "
 		+ COLUMN_NAME + ") VALUE (?, ?)";
 
-	private static final String UPDATE_MENUITEM = "UPDATE menu_item "
+	private static final String UPDATE_MENUITEM = "UPDATE menu_item SET "
 		+ COLUMN_MENUITEM_ID + "= ?, "
 		+ COLUMN_PRICE + "= ?, "
-		+ COLUMN_NAME + "= ? " + "= ? WHERE "
+		+ COLUMN_NAME + "= ?  WHERE "
 		+ COLUMN_MENUITEM_ID + " = ?";
 
 	private static final String DELETE_MENUITEM = "DELETE FROM menu_item "
@@ -101,13 +101,40 @@ public class MenuItemDao implements EntityDao<MenuItem>
 	@Override
 	public boolean update(final MenuItem entity)
 	{
-		return false;
+		boolean success = false;
+		try(Connection connection = ConnectionFactory.getConnection())
+		{
+			PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_MENUITEM);
+			preparedStatement.setInt(1, entity.getId());
+			preparedStatement.setInt(2, entity.getPrice());
+			preparedStatement.setString(3, entity.getName());
+			preparedStatement.setInt(4, entity.getId());
+			int result = preparedStatement.executeUpdate();
+			success = result != 0;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return success;
 	}
 
 	@Override
-	public boolean remove(final MenuItem entity)
+	public boolean remove(final int id)
 	{
-		return false;
+		boolean success = false;
+		try(Connection connection = ConnectionFactory.getConnection())
+		{
+			PreparedStatement preparedStatement = connection.prepareStatement(DELETE_MENUITEM);
+			preparedStatement.setInt(1, id);
+			int result = preparedStatement.executeUpdate();
+			success = result != 0;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return success;
 	}
 
 }
