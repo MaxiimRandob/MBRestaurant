@@ -4,6 +4,7 @@ import com.mbrestaurant.web.command.Command;
 import com.mbrestaurant.web.command.HomeCommand;
 import com.mbrestaurant.web.command.menu.*;
 import com.mbrestaurant.web.command.NotFoundCommand;
+import com.mbrestaurant.web.command.order.CreateOrderCommandGet;
 import com.mbrestaurant.web.command.order.OrderListCommandGet;
 
 import java.util.HashMap;
@@ -18,6 +19,7 @@ public class CommandFactory
 	static {
 
 		//--------- GET commands ----------//
+		getCommandMap.put("/create-order", new CreateOrderCommandGet());
 		getCommandMap.put("/update-menu-item", new MenuCommandUpdate());
 		getCommandMap.put("/add-menu-item", new ShowMenuItemAddForm());
 		getCommandMap.put("/orders", new OrderListCommandGet());

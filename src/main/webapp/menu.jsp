@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
 <div id="wrapper">
 	<div id="header">
 		<h2> Menu </h2>

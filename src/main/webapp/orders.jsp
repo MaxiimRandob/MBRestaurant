@@ -27,7 +27,7 @@
 
 	<div id=content">
 		<input type="button" value="Add Order"
-			   onclick="window.location.href=''; return false;"
+			   onclick="window.location.href='<c:url value="/create-order" />'; return false;"
 			   class="add-button"
 		/>
 		<table>

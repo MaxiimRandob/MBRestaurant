@@ -7,5 +7,6 @@ public class PageUrlConstants
 	public static final String HOME_PAGE = "/home";
 	public static final String ADD_MENU_ITEM_PAGE = "/add-menu-item";
 	public static final String UPDATE_MENU_ITEM_PAGE = "/update-menu-item";
+	public static final String CREATE_ORDER_PAGE = "/create-order";
 
 }
