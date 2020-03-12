@@ -6,16 +6,19 @@ public class OrderItem
 
 	private int cost;
 
-	private String amount;
+	private int amount;
 
 	private int menuItemID;
 
 	private int orderID;
 
+	public OrderItem() {
+	}
+
 	public OrderItem(
 		final int id,
 		final int cost,
-		final String amount,
+		final int amount,
 		final int menuItemID,
 		final int orderID)
 	{
@@ -37,12 +40,12 @@ public class OrderItem
 		this.cost = cost;
 	}
 
-	public String getAmount()
+	public int getAmount()
 	{
 		return amount;
 	}
 
-	public void setAmount(final String amount)
+	public void setAmount(final int amount)
 	{
 		this.amount = amount;
 	}

@@ -36,7 +36,7 @@
                     <tbody>
                     <tr>
                         <td>
-                            <select id="menuIt" name="menu">
+                            <select id="menuIt" name="itemName">
                                 <c:forEach var="MenuItem" items="${menu}">
                                     <option value="${MenuItem.name}">${MenuItem.name}</option>
                                 </c:forEach>
