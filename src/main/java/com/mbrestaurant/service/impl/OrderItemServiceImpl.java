@@ -1,11 +1,8 @@
 package com.mbrestaurant.service.impl;
 
-import com.mbrestaurant.persistance.model.MenuItem;
 import com.mbrestaurant.persistance.model.OrderItem;
 import com.mbrestaurant.service.OrderItemService;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public class OrderItemServiceImpl  implements OrderItemService {
@@ -23,7 +20,7 @@ public class OrderItemServiceImpl  implements OrderItemService {
         return false;
     }
 
-    public static OrderItem getOrderItemFromRequest(HttpServletRequest request) {
+   /* public static OrderItem getOrderItemFromRequest(HttpServletRequest request) {
         String name = request.getParameter("itemName");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
 
@@ -33,5 +30,5 @@ public class OrderItemServiceImpl  implements OrderItemService {
 
 
         return null;
-    }
+    }*/
 }
